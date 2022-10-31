@@ -1,0 +1,189 @@
+# #------------------------------#
+# #-           Layout           -#
+# #------------------------------#
+#
+# This file uses top level patterns to describe syntax:
+# Comments, Constants, Entities, Invalid, Keywords, Strings, Support, Variables
+#
+# And follows the structure used by most syntax themes, given [here](https://macromates.com/manual/en/language_grammars).
+# Include lines are commented out when this feature is not used in the language.
+
+scopeName: source.fun
+fileTypes:
+  - .fun
+patterns:
+  #------------------------------#
+  #-     Top level includes     -#
+  #------------------------------#
+  - include: '#Comments'
+  - include: '#Constants'
+  - include: '#Entities'
+  - include: '#Invalid'
+  - include: '#Keywords'
+  # - include: '#Markup'
+  # - include: '#Meta'
+  # - include: '#Storage'
+  - include: '#Strings'
+  - include: '#Support'
+  - include: '#Variables'
+  - name: variable
+    match: '\w+'
+repository:
+  #------------------------------#
+  #-    Full Implementations    -#
+  #------------------------------#
+  Comments:
+    name: comment.fun
+    patterns:
+      - include: '#Line'
+      # - include: '#Block'
+  Line:
+    name: comment.line.double-dash.fun
+    match: '--.*$'
+
+  Constants:
+    name: constant.fun
+    patterns:
+      - include: '#Numerics'
+      # - include: '#Character'
+      - include: '#Language'
+  Numerics:
+    name: constant.numeric.fun
+    match: '\d+'
+  Language:
+    name: constant.language.fun
+    match: 'nil|true|false'
+
+  Entities:
+    name: entity.fun
+    patterns:
+      - include: '#Name'
+  Name:
+    name: entity.name.fun
+    patterns:
+      - include: '#FunctionName'
+      # - include: '#TypeName'
+      # - include: '#Tag'
+  FunctionName:
+    begin: '(\w+)(?<!lambda)\s*\('
+    beginCaptures:
+      '1': { name: entity.name.function.fun }
+    end: '\)'
+
+  Invalid:
+    name: invalid.fun
+    patterns:
+      - include: '#Illegal'
+      # - include: '#Deprecated'
+  Illegal:
+    # Just match anything which never appears in the language
+    name: invalid.illegal.fun
+    match: >
+      [^\w\s~\+\-\*\/&\|\^:=!<>'",\.;\(\)\[\]\{\}]
+
+  Keywords:
+    name: keyword.fun
+    patterns:
+      - include: '#Control'
+      - include: '#Operator'
+  Control:
+    name: keyword.control.fun
+    patterns:
+      - include: '#Conditionals'
+      - include: '#Environment'
+      - include: '#Functional'
+      - include: '#Looping'
+      - include: '#Errors'
+  Conditionals:
+    name: keyword.control.conditional.fun
+    match: 'if|then|else'
+  Environment:
+    name: keyword.control.environment.fun
+    match: 'let|rec|val|in'
+  Functional:
+    name: keyword.control.function.fun
+    match: 'lambda'
+  Looping:
+    name: keyword.control.looping.fun
+    match: 'while|do'
+  Errors:
+    name: keyword.control.error.fun
+    match: 'orelse'
+  Operator:
+    name: keyword.operator.fun
+    patterns:
+      - include: '#Maths'
+      - include: '#Binary'
+      - include: '#Memory'
+      - include: '#Equals'
+      - include: '#Comparisons'
+  Maths:
+    name: keyword.operator.math.fun
+    match: '~|\+|-|\*|\/|div|mod'
+  Binary:
+    name: keyword.operator.binary.fun
+    match: '>>|&|\||\^'
+  Memory:
+    name: keyword.operator.memory.fun
+    match: ':=|!'
+  Equals:
+    name: keyword.operator.equals.fun
+    match: '='
+  Comparisons:
+    name: keyword.operator.comparison.fun
+    match: '<>|<|>|<=|>='
+
+  Strings:
+    name: string.fun
+    patterns:
+      - include: '#Quoted'
+      # - include: '#Unquoted'
+      # - include: '#Interpolated'
+      # - include: '#Regexp'
+  Quoted:
+    name: string.quoted.fun
+    patterns:
+      - include: '#Single'
+      - include: '#Double'
+      # - include: '#Triple'
+  Single:
+    name: string.quoted.single.fun
+    match: "'[^']*'"
+  Double:
+    name: string.quoted.double.fun
+    match: '"[^"]*"'
+
+  Support:
+    name: support.fun
+    patterns:
+      - include: '#Function'
+      # - include: '#Class'
+      # - include: '#Type'
+      # - include: '#Constant'
+      # - include: '#Variable'
+  Function:
+    name: support.function.fun
+    match: 'integer|head|tail|list|print|new'
+
+  Variables:
+    name: variable.fun
+    patterns:
+      - include: '#Parameters'
+      # - include: '#LanguageVariables'
+  Parameters:
+    patterns:
+      - include: '#InlineParameters'
+      - include: '#LambdaParameters'
+  InlineParameters:
+    begin: '\w+\s*\('
+    end: '\)\s*='
+    patterns:
+      - include: '#Parameter'
+  LambdaParameters:
+    begin: 'lambda\s*\('
+    end: '\)'
+    patterns:
+      - include: '#Parameter'
+  Parameter:
+    name: variable.parameter.fun
+    match: '\w+'

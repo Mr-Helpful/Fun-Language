@@ -1,0 +1,37 @@
+{
+  "name": "fun-support",
+  "displayName": "Fun Support",
+  "description": "Language support for the Fun interpreter",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "fun",
+        "aliases": [
+          "Fun",
+          "fun"
+        ],
+        "extensions": [
+          ".fun"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "fun",
+        "scopeName": "source.fun",
+        "path": "./syntaxes/fun.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
