@@ -8,14 +8,14 @@ This repository provides syntax support for the Fun programming language (for th
 
 To install this as a VSCode extension:
 
-1. Get the Fun-Language-VSCode extension from [github]()
+1. Get the Fun-Language-VSCode extension from [github](https://github.com/Mr-Helpful/Fun-Language)
 2. Add the folder to your .vscode folder (in your home directory)
 
 ### Sublime Text
 
 To install this as a Sublime Text extension:
 
-1. Get the Fun-Language-Sublime-Text extension from [github]()
+1. Get the Fun-Language-Sublime-Text extension from [github](https://github.com/Mr-Helpful/Fun-Language)
 2. In the menu bar click: Sublime Text > Preferences > Browse Packages
 3. Add the folder within Fun-Language-Sublime-Text to this folder
 
