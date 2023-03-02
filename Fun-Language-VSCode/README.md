@@ -1,6 +1,6 @@
 # fun-support README
 
-Provides support for the `.fun` syntax language.
+Provides support for the `.fun` language.
 
 As far as I can tell, this language is only used as a toy language for the Oxford POPL
 course... so maybe not useful to most people, but I got irritated at the lack of syntax
