@@ -20,6 +20,7 @@ Bracket completion:
 
 - Could have more applicable scopes, i.e. `expression.fun`, `assignment.fun`, ...
 - Could properly label parameter variables
+- Conflict with `then ... (` being treated as a function name rather than a conditional
 
 ## Release Notes
 
