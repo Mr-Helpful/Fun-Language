@@ -1,9 +1,14 @@
-# Change Log
+# Changelog
 
-All notable changes to the "fun-support" extension will be documented in this file.
+## Unreleased
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## Released
 
-## [Unreleased]
+### 1.0.0
 
-- Initial release
+Added syntax highlighting in terms of line based regexes for the `fun` language
+
+### 1.0.1
+
+Fixed comment highlighting breaking highlighting for the rest of the file
+Fixed highlighting breaking down within function arguments

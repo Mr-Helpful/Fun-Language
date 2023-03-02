@@ -36,10 +36,14 @@ repository:
     name: comment.fun
     patterns:
       - include: '#Line'
-      # - include: '#Block'
+      - include: '#Block'
   Line:
     name: comment.line.double-dash.fun
     match: '--.*$'
+  Block:
+    name: comment.block.bracket-dash.fun
+    begin: '\(-'
+    end: '-\)'
 
   Constants:
     name: constant.fun
@@ -68,6 +72,9 @@ repository:
     begin: '(\w+)(?<!lambda)\s*\('
     beginCaptures:
       '1': { name: entity.name.function.fun }
+    contentName: list.arguments.fun
+    patterns:
+      - include: '$self'
     end: '\)'
 
   Invalid:

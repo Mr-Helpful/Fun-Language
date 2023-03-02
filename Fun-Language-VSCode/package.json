@@ -2,7 +2,7 @@
   "name": "fun-support",
   "displayName": "Fun Support",
   "description": "Language support for the Fun interpreter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.72.0"
   },

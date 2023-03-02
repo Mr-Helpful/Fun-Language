@@ -27,6 +27,10 @@
     },
     {
       "include": "#Variables"
+    },
+    {
+      "name": "variable",
+      "match": "\\w+"
     }
   ],
   "repository": {
@@ -35,12 +39,20 @@
       "patterns": [
         {
           "include": "#Line"
+        },
+        {
+          "include": "#Block"
         }
       ]
     },
     "Line": {
       "name": "comment.line.double-dash.fun",
       "match": "--.*$"
+    },
+    "Block": {
+      "name": "comment.block.bracket-dash.fun",
+      "begin": "\\(-",
+      "end": "-\\)"
     },
     "Constants": {
       "name": "constant.fun",
@@ -84,6 +96,12 @@
           "name": "entity.name.function.fun"
         }
       },
+      "contentName": "list.arguments.fun",
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ],
       "end": "\\)"
     },
     "Invalid": {
